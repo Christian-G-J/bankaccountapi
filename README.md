@@ -15,7 +15,7 @@ These instructions will help you get the project up and running on your local ma
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Christian-G-J/bankaccountapi.git
+    git clone https://huskatfikse.git
     ```
 
 2. **Build the project:**
@@ -60,7 +60,63 @@ Upon startup, the application will automatically populate the in-memory H2 datab
 
 The following endpoints are available:
 
-[...]
+### Create Account
+
+- **Method:** POST
+- **Endpoint:** `/accounts`
+- **Description:** Creates a new bank account.
+- **Payload Example:**
+    ```json
+    {
+      "accountNumber": "123456",
+      "firstName": "John",
+      "lastName": "Doe",
+      "balance": "1000.00"
+    }
+    ```
+- **cURL Example:**
+    ```bash
+    curl -X POST http://localhost:8080/accounts \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "accountNumber": "123456",
+        "firstName": "John",
+        "lastName": "Doe",
+        "balance": "1000.00"
+    }'
+    ```
+
+### Deposit Money
+
+- **Method:** PUT
+- **Endpoint:** `/accounts/{accountNumber}/deposit`
+- **Description:** Deposits money into an account.
+- **Parameters:** `amount`
+- **cURL Example:**
+    ```bash
+    curl -X PUT 'http://localhost:8080/accounts/123456/deposit?amount=500'
+    ```
+
+### Transfer Money
+
+- **Method:** PUT
+- **Endpoint:** `/accounts/{sourceAccountNumber}/transfer`
+- **Description:** Transfers money from one account to another.
+- **Parameters:** `destinationAccountNumber`, `amount`
+- **cURL Example:**
+    ```bash
+    curl -X PUT 'http://localhost:8080/accounts/123456/transfer?destinationAccountNumber=654321&amount=200'
+    ```
+
+### Get Account Balance
+
+- **Method:** GET
+- **Endpoint:** `/accounts/{accountNumber}/balance`
+- **Description:** Retrieves the balance of a specific account.
+- **cURL Example:**
+    ```bash
+    curl -X GET http://localhost:8080/accounts/123456/balance
+    ```
 
 ## Running Tests
 
