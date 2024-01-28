@@ -15,7 +15,7 @@ These instructions will help you get the project up and running on your local ma
 
 1. **Clone the repository:**
     ```bash
-    git clone [https://huskatfikse.git](https://github.com/Christian-G-J/bankaccountapi.git)
+    git clone https://github.com/Christian-G-J/bankaccountapi.git
     ```
 
 2. **Build the project:**
